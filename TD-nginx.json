@@ -19,7 +19,7 @@
     ],
     "volumes": [],
     "networkMode": "bridge",
-    "memory": "512",
+    "memory": "256",
     "cpu": "256",
     "placementConstraints": [],
     "family": "nginx"   
