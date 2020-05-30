@@ -22,6 +22,5 @@
     "memory": "512",
     "cpu": "256",
     "placementConstraints": [],
-    "family": "nginx",
-    "tags": []
+    "family": "nginx",    
 }
