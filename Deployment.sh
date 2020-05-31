@@ -8,5 +8,6 @@ aws ecs register-task-definition --family nginx --cli-input-json file://TD-nginx
 #aws ecs create-service --service-name nginx --launch-type EC2 --desired-count 1 --task-definition nginx --cluster test --region us-east-1
 REVISION=`aws ecs describe-task-definition --task-definition nginx --region us-east-1 |jq .taskDefinition.revision`
 for task in $(aws ecs list-tasks --cluster test --family nginx| jq -r '.taskArns[]'); do
+    aws ecs stop-task --cluster test --task ${task};
 done
 aws ecs update-service --region us-east-1 --service nginx --task-definition nginx:$REVISION --cluster test --desired-count 1 --force-new-deployment
